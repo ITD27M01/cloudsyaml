@@ -7,8 +7,6 @@ try:
 except ImportError as error:
     raise ImportError("ERROR: Looks like dependencies are not satisfied. Import error: %s" % error)
 
-from clouds import arguments
-
 
 loader = client_config.OpenStackConfig(app_name='cloudsyaml')
 

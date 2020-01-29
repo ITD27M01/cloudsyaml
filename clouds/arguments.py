@@ -1,7 +1,7 @@
 
 
 def arg_list(parser):
-    parser.add_argument('--grep', type=str, action='store',
+    parser.add_argument('--grep', type=str, action='append',
                         help='Regexp to grep the clouds by names')
 
     return parser

@@ -9,8 +9,13 @@ from clouds.utils import to_list
 
 def list_clouds(args):
     clouds = get_clouds()
+
     if args.grep:
-        return list(filter(lambda cloud: search(args.grep, cloud.name), clouds))
+        filtered_clouds = clouds
+        for grep in args.grep:
+            filtered_clouds = list(filter(lambda cloud: search(grep, cloud.name), filtered_clouds))
+
+        return filtered_clouds
     else:
         return clouds
 
