@@ -1,3 +1,4 @@
+from re import search
 from cliff.lister import Lister
 from cliff.show import ShowOne
 from clouds import arguments
@@ -6,8 +7,12 @@ from clouds.sdk import get_one_cloud
 from clouds.utils import to_list
 
 
-def list_clouds():
-    return get_clouds()
+def list_clouds(args):
+    clouds = get_clouds()
+    if args.grep:
+        return list(filter(lambda cloud: search(args.grep, cloud.name), clouds))
+    else:
+        return clouds
 
 
 def get_cloud(cloud):
@@ -19,10 +24,11 @@ class List(Lister):
     def get_parser(self, prog_name):
         parser = super(List, self).get_parser(prog_name)
 
+        parser = arguments.arg_list(parser)
         return parser
 
     def take_action(self, parsed_args):
-        clouds = list_clouds()
+        clouds = list_clouds(parsed_args)
 
         return ('name',), ((cloud.name,) for cloud in clouds)
 
