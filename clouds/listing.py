@@ -21,6 +21,8 @@ def get_cloud(cloud):
 
 class List(Lister):
     """List clouds from files."""
+    formatter_default = 'value'
+
     def get_parser(self, prog_name):
         parser = super(List, self).get_parser(prog_name)
 
