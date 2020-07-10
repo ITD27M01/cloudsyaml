@@ -52,4 +52,4 @@ class Show(ShowOne):
     def take_action(self, parsed_args):
         cloud = get_cloud(parsed_args.cloud)
         data = to_list(cloud)
-        return (cloud.name, ), data
+        return ('clouds', ), data
