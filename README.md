@@ -1,5 +1,10 @@
 # Simple library and CLI to explore the clouds.yaml
 
+If you manage a big OpenStack cloud, you may find yourself in a situation with a lot of entries in your clouds.yaml file.
+The problem is that you need to configure a separate cloud for each project.
+Moreover, they multiplied by the count of regions in your deployment.
+The `cloudsyaml` package, which provides simple `clouds` utility will simplify exploring such a yaml-based database.
+
 ## List configured clouds
 ```
 $ clouds list
