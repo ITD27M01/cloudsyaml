@@ -1,4 +1,4 @@
-# Simple library and CLI for explore the clouds.yaml
+# Simple library and CLI to explore the clouds.yaml
 
 ## List configured clouds
 ```
