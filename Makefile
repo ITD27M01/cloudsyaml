@@ -27,7 +27,7 @@ clean: venv
 	@find . -name "*.pyc" -delete
 	@rm -rf *.egg-info
 	@rm -rf .eggs
-	@pip uninstall hack-assembler -y
+	@pip uninstall cloudsyaml -y
 
 .PHONY: check
 check: venv
