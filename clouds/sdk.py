@@ -3,7 +3,6 @@ from cliff.lister import Lister
 
 try:
     import openstack.config.loader as client_config
-    HAS_SDK = True
 except ImportError as error:
     raise ImportError("ERROR: Looks like dependencies are not satisfied. Import error: %s" % error)
 
@@ -24,7 +23,7 @@ def list_files():
 
 
 class Files(Lister):
-    """Get list of used files."""
+    """Get list of used files"""
     def get_parser(self, prog_name):
         parser = super(Files, self).get_parser(prog_name)
 

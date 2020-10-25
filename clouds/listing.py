@@ -25,7 +25,7 @@ def get_cloud(cloud):
 
 
 class List(Lister):
-    """List clouds from files."""
+    """List clouds from files"""
     formatter_default = 'value'
 
     def get_parser(self, prog_name):
@@ -37,11 +37,14 @@ class List(Lister):
     def take_action(self, parsed_args):
         clouds = list_clouds(parsed_args)
 
-        return ('name',), ((cloud.name,) for cloud in clouds)
+        if parsed_args.eval:
+            return ('eval',), (("export OS_CLOUD={}".format(cloud.name),) for cloud in clouds)
+        else:
+            return ('name',), ((cloud.name,) for cloud in clouds)
 
 
 class Show(ShowOne):
-    """Show cloud from files."""
+    """Show cloud from files"""
     formatter_default = 'yaml'
 
     def get_parser(self, prog_name):
@@ -51,5 +54,7 @@ class Show(ShowOne):
 
     def take_action(self, parsed_args):
         cloud = get_cloud(parsed_args.cloud)
-        data = to_list(cloud)
+
+        data = to_list(cloud, parsed_args.detail)
+
         return ('clouds', ), data
