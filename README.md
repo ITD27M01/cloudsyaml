@@ -49,5 +49,6 @@ $ clouds files
 | name        | path                                             |
 +-------------+--------------------------------------------------+
 | clouds.yaml | /Users/igor.tiunov/.config/openstack/clouds.yaml |
+| secure.yaml | /Users/igor.tiunov/.config/openstack/secure.yaml |
 +-------------+--------------------------------------------------+
 ```

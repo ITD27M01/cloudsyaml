@@ -18,3 +18,10 @@ def arg_show(parser):
                         help='Print detailed cloud config')
 
     return parser
+
+
+def arg_files(parser):
+    parser.add_argument('--all', action='store_true', default=False,
+                        help='Finds and lists all config files used in system')
+
+    return parser
