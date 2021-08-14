@@ -13,7 +13,7 @@ def list_clouds(args):
     if args.grep:
         filtered_clouds = clouds
         for grep in args.grep:
-            filtered_clouds = list(filter(lambda cloud: search(grep, cloud.name), filtered_clouds))
+            filtered_clouds = filter(lambda cloud: search(grep, cloud.name), filtered_clouds)
 
         return filtered_clouds
     else:
